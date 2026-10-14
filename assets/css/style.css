@@ -77,7 +77,7 @@ body { background: var(--background); color: var(--cream); }
   width: 100%;
   margin: 0;
   transform: translateX(-50%);
-  color: rgba(232, 221, 196, .075);
+  color: rgba(232, 221, 196, .16);
   font: 500 clamp(6rem, 14vw, 16rem)/.68 "Cormorant Garamond", Georgia, serif;
   letter-spacing: -.075em;
   text-transform: uppercase;
@@ -273,14 +273,19 @@ body { background: var(--background); color: var(--cream); }
 }
 
 .practice-card {
+  --card-top: 100px;
   position: sticky;
-  top: 100px;
+  top: var(--card-top);
   z-index: 1;
   width: 100%;
   perspective: 100vw;
 }
 
 .practice-card__surface {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - var(--card-top) - 24px);
+  max-height: calc(100svh - var(--card-top) - 24px);
   overflow: hidden;
   border: 1px solid rgba(241, 234, 220, .12);
   border-radius: 16px;
@@ -297,12 +302,12 @@ body { background: var(--background); color: var(--cream); }
 .practice-card:nth-child(3) { z-index: 30; }
 .practice-card:nth-child(4) { z-index: 40; }
 
-.practice-card__image { aspect-ratio: 16 / 9; overflow: hidden; background: #282523; }
+.practice-card__image { flex: 0 1 auto; min-height: 140px; aspect-ratio: 16 / 9; overflow: hidden; background: #282523; }
 .practice-card__image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.16, 1, .3, 1); }
 .practice-card:hover .practice-card__surface { box-shadow: 0 35px 80px rgba(0, 0, 0, .32), 0 4px 12px rgba(0, 0, 0, .25); }
 .practice-card:hover .practice-card__image img { transform: scale(1.03); }
 
-.practice-card__body { display: flex; gap: 24px; align-items: flex-start; justify-content: space-between; padding: 30px; }
+.practice-card__body { flex: none; display: flex; gap: 24px; align-items: flex-start; justify-content: space-between; padding: 30px; }
 .practice-card__heading { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 20px; }
 .practice-card__title { color: var(--cream); font: 500 clamp(2.2rem, 3.1vw, 3.1rem)/1.1 "Cormorant Garamond", Georgia, serif; letter-spacing: -.035em; text-decoration: none; transition: color .2s ease; }
 .practice-card__title:hover { color: var(--gold); }
@@ -673,7 +678,25 @@ body { background: var(--background); color: var(--cream); }
 .footer__nav a, .footer__contact { color: rgba(241, 234, 220, .67); font: 500 .6rem/1.3 Montserrat, Arial, sans-serif; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; transition: color .2s ease; }
 .footer__nav a:hover, .footer__contact:hover { color: var(--gold); }
 
-.footer__contact { justify-self: end; padding-bottom: 5px; }
+.footer__aside { display: flex; flex-direction: column; align-items: flex-end; gap: 18px; justify-self: end; }
+
+.footer__social { display: flex; gap: 12px; }
+
+.footer__social a {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(214, 182, 109, .45);
+  border-radius: 50%;
+  color: var(--gold);
+  transition: color .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.footer__social a:hover, .footer__social a:focus-visible { color: #111; background: var(--gold); border-color: var(--gold); }
+.footer__social svg { width: 18px; height: 18px; }
+
+.footer__contact { padding-bottom: 5px; }
 .footer__contact span { padding-left: 8px; color: var(--gold); font-size: .95rem; }
 
 .footer__bottom {
@@ -691,7 +714,7 @@ body { background: var(--background); color: var(--cream); }
   .practice__marquee span { font-size: 6.25rem; }
   .practice__marquee i { width: 45px; height: 58px; }
   .practice__cards { gap: 110px; margin-top: 40px; }
-  .practice-card { top: 80px; }
+  .practice-card { --card-top: 80px; }
   .practice-card__body { padding: 24px; }
   .practice-card__title { font-size: 2.4rem; }
 
@@ -729,7 +752,7 @@ body { background: var(--background); color: var(--cream); }
     margin-top: 20px;
     padding-bottom: 0;
   }
-  .practice-card { top: 60px; }
+  .practice-card { --card-top: 60px; }
   .practice-card__surface { border-radius: 12px; }
   .practice-card__body { flex-direction: column; gap: 14px; padding: 18px; }
   .practice-card__title { font-size: 2rem; }
@@ -765,7 +788,8 @@ body { background: var(--background); color: var(--cream); }
   .footer__main { display: flex; flex-direction: column; gap: 30px; align-items: flex-start; padding-bottom: 32px; }
   .footer__brand img { height: 40px; }
   .footer__nav { flex-wrap: wrap; gap: 16px 25px; padding: 0; }
-  .footer__contact { justify-self: auto; padding: 0; font-size: .57rem; }
+  .footer__aside { align-items: flex-start; justify-self: auto; }
+  .footer__contact { padding: 0; font-size: .57rem; }
   .footer__bottom { flex-direction: column; gap: 7px; }
   .footer__bottom p { font-size: .48rem; }
 
