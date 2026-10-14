@@ -257,6 +257,21 @@ if (practiceCards.length) {
   window.addEventListener("load", scheduleCards, { once: true });
 }
 
+document.querySelectorAll("[data-modal]").forEach((trigger) => {
+  const modal = document.getElementById(trigger.dataset.modal);
+  if (!modal || typeof modal.showModal !== "function") return;
+  trigger.addEventListener("click", () => {
+    modal.showModal();
+    if (smoothScroll) smoothScroll.stop();
+  });
+});
+
+document.querySelectorAll(".service-modal").forEach((modal) => {
+  modal.addEventListener("close", () => { if (smoothScroll) smoothScroll.start(); });
+  modal.addEventListener("click", (event) => { if (event.target === modal) modal.close(); });
+  modal.querySelector("[data-close-modal]")?.addEventListener("click", () => modal.close());
+});
+
 const aboutSection = document.querySelector(".about");
 
 if (aboutSection) {
