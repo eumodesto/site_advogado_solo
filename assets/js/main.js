@@ -31,7 +31,7 @@ if (hero && revealTargets.length) {
     clone.setAttribute("aria-hidden", "true");
     clone.classList.add("hero__reveal-scroll");
     if (target.classList.contains("hero__title")) clone.classList.add("hero__title--scroll");
-    target.after(clone);
+    (target.closest("h1") || target).after(clone);
     return clone;
   });
 
