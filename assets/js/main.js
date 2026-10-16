@@ -272,21 +272,60 @@ document.querySelectorAll(".service-modal").forEach((modal) => {
   modal.querySelector("[data-close-modal]")?.addEventListener("click", () => modal.close());
 });
 
+const faqItems = [...document.querySelectorAll(".faq__item")];
+
+if (faqItems.length) {
+  faqItems.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      faqItems.forEach((other) => {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+}
+
 const aboutSection = document.querySelector(".about");
 
 if (aboutSection) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let aboutRevealed = false;
+
+  const revealAbout = () => {
+    if (aboutRevealed) return;
+    aboutRevealed = true;
+    aboutSection.classList.add("is-visible");
+  };
+
+  const aboutInView = () => {
+    const rect = aboutSection.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.88 && rect.bottom > window.innerHeight * 0.08;
+  };
 
   if (reducedMotion || !("IntersectionObserver" in window)) {
-    aboutSection.classList.add("is-visible");
+    revealAbout();
   } else {
     const aboutObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        aboutSection.classList.toggle("is-visible", entry.isIntersecting);
+        if (!entry.isIntersecting) return;
+        revealAbout();
+        aboutObserver.unobserve(aboutSection);
       });
-    }, { threshold: window.innerWidth <= 700 ? .05 : .2 });
+    }, { threshold: window.innerWidth <= 700 ? .05 : .12 });
 
     aboutObserver.observe(aboutSection);
+
+    const syncAboutReveal = () => {
+      if (!aboutInView()) return;
+      revealAbout();
+      aboutObserver.unobserve(aboutSection);
+      if (smoothScroll) smoothScroll.off("scroll", syncAboutReveal);
+      window.removeEventListener("scroll", syncAboutReveal);
+    };
+
+    if (smoothScroll) smoothScroll.on("scroll", syncAboutReveal);
+    window.addEventListener("scroll", syncAboutReveal, { passive: true });
+    requestAnimationFrame(syncAboutReveal);
   }
 }
 

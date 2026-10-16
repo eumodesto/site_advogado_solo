@@ -104,6 +104,52 @@
             "url": "https://hildernando.adv.br/",
             "inLanguage": "pt-BR",
             "publisher": { "@id": "https://hildernando.adv.br/#escritorio" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://hildernando.adv.br/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Como funciona o primeiro atendimento?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "O primeiro contato costuma ser pelo WhatsApp ou telefone. Você conta o que aconteceu, eu analiso o cenário e oriento os próximos passos com clareza, sem compromisso imediato de contrato."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "O atendimento é sigiloso?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sim. Todas as informações compartilhadas são protegidas pelo sigilo profissional previsto no Código de Ética e Disciplina da OAB, do primeiro contato até o encerramento do caso."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Como acompanho o andamento do meu processo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Você recebe atualizações relevantes sobre o caso e pode consultar o número do processo quando ele estiver disponível. Também pode falar comigo pelos canais oficiais sempre que precisar de esclarecimentos."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Como funcionam os honorários?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Os honorários são definidos de forma transparente, conforme a complexidade do caso, a área de atuação e as etapas necessárias. Tudo fica claro antes do início do trabalho."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Em quais regiões o Dr. Hildernando atende?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Atendo com unidades no Ceará, na Paraíba e no Rio Grande do Norte, além de atendimento online para clientes em todo o Brasil."
+                }
+              }
+            ]
           }
         ]
       }
@@ -189,16 +235,77 @@
 
       <section class="about" id="quem-sou" aria-labelledby="about-title">
         <div class="about__name" aria-hidden="true">Hildernando<br />Antunes</div>
-        <div class="about__visual">
-          <img src="assets/imagens/hildernando-antunes-advogado.webp" alt="Dr. Hildernando Antunes, advogado, de terno azul e braços cruzados" width="1600" height="893" loading="lazy" />
-        </div>
 
-        <div class="about__content">
-          <p class="about__eyebrow">Conheça seu advogado</p>
-          <h2 id="about-title">Dr. Hildernando<br /><span>Antunes</span></h2>
-          <p>Atuo com uma advocacia estratégica, próxima e construída a partir das necessidades reais de cada cliente. Meu compromisso é transformar situações complexas em decisões seguras.</p>
-          <p>Com uma análise rigorosa e comunicação clara, atuo em <a href="#penal">Direito Penal e Criminal</a>, <a href="#civil">Direito Civil</a>, <a href="#imobiliario">Direito Imobiliário</a> e <a href="#usucapiao">Usucapião</a>, desenvolvendo soluções para proteger patrimônios, negócios e relações que merecem atenção jurídica qualificada.</p>
-          <p class="about__signature">Estratégia, presença e responsabilidade em cada etapa.</p>
+        <div class="about__layout">
+          <div class="about__content">
+            <p class="about__eyebrow">Conheça seu advogado</p>
+            <h2 id="about-title">Dr. Hildernando<br /><span>Antunes</span></h2>
+            <p>Atuo com uma advocacia estratégica, próxima e construída a partir das necessidades reais de cada cliente. Meu compromisso é transformar situações complexas em decisões seguras.</p>
+            <p>Com uma análise rigorosa e comunicação clara, atuo em <a href="#penal">Direito Penal e Criminal</a>, <a href="#civil">Direito Civil</a>, <a href="#imobiliario">Direito Imobiliário</a> e <a href="#usucapiao">Usucapião</a>, desenvolvendo soluções para proteger patrimônios, negócios e relações que merecem atenção jurídica qualificada.</p>
+            <p class="about__signature">Estratégia, presença e responsabilidade em cada etapa.</p>
+          </div>
+
+          <div class="about__visuals" aria-label="Galeria do Dr. Hildernando Antunes">
+            <div class="about__montage">
+              <div class="about__collage">
+                <figure class="about__tile about__tile--sbt">
+                  <img src="assets/imagens/collage-entrevista-sbt.webp" alt="Dr. Hildernando Antunes em entrevista à TV SBT" width="720" height="780" loading="lazy" />
+                </figure>
+                <figure class="about__tile about__tile--desk">
+                  <img src="assets/imagens/collage-retrato-escritorio.webp" alt="Dr. Hildernando Antunes no escritório" width="720" height="900" loading="lazy" />
+                </figure>
+                <figure class="about__tile about__tile--night">
+                  <img src="assets/imagens/collage-entrevista-noturna.webp" alt="Dr. Hildernando Antunes em entrevista noturna à imprensa" width="720" height="900" loading="lazy" />
+                </figure>
+              </div>
+              <div class="about__portrait">
+                <img src="assets/imagens/collage-principal.png" alt="Dr. Hildernando Antunes, advogado, de terno azul e braços cruzados" width="780" height="913" loading="eager" decoding="async" fetchpriority="high" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" id="perguntas-frequentes" aria-labelledby="faq-title">
+        <div class="faq__container">
+          <div class="faq__intro">
+            <p class="faq__eyebrow">Dúvidas comuns</p>
+            <h2 id="faq-title">Perguntas <span>frequentes</span></h2>
+          </div>
+
+          <div class="faq__layout">
+            <div class="faq__list">
+              <details class="faq__item">
+                <summary>Como funciona o primeiro atendimento?</summary>
+                <p>O primeiro contato costuma ser pelo WhatsApp ou telefone. Você conta o que aconteceu, eu analiso o cenário e oriento os próximos passos com clareza, sem compromisso imediato de contrato.</p>
+              </details>
+              <details class="faq__item">
+                <summary>O atendimento é sigiloso?</summary>
+                <p>Sim. Todas as informações compartilhadas são protegidas pelo sigilo profissional previsto no Código de Ética e Disciplina da OAB, do primeiro contato até o encerramento do caso.</p>
+              </details>
+              <details class="faq__item">
+                <summary>Como acompanho o andamento do meu processo?</summary>
+                <p>Você recebe atualizações relevantes sobre o caso e pode consultar o número do processo quando ele estiver disponível. Também pode falar comigo pelos canais oficiais sempre que precisar de esclarecimentos.</p>
+              </details>
+              <details class="faq__item">
+                <summary>Como funcionam os honorários?</summary>
+                <p>Os honorários são definidos de forma transparente, conforme a complexidade do caso, a área de atuação e as etapas necessárias. Tudo fica claro antes do início do trabalho.</p>
+              </details>
+              <details class="faq__item">
+                <summary>Em quais regiões o Dr. Hildernando atende?</summary>
+                <p>Atendo com unidades no Ceará, na Paraíba e no Rio Grande do Norte, além de atendimento online para clientes em todo o Brasil.</p>
+              </details>
+            </div>
+
+            <aside class="faq__cta" aria-label="Fale com o escritório">
+              <p class="faq__cta-mark" aria-hidden="true"></p>
+              <h3 class="faq__cta-title">Você ficou com alguma <em>dúvida?</em></h3>
+              <p class="faq__cta-text">Toque no botão abaixo e fale comigo pelo WhatsApp.</p>
+              <a class="faq__cta-button" href="https://wa.me/558599309095" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">↗</span> Tirar minhas dúvidas
+              </a>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -227,6 +334,7 @@
         <nav class="footer__nav" aria-label="Navegação do rodapé">
           <a href="#areas-de-atuacao">Áreas de atuação</a>
           <a href="#quem-sou">Quem sou eu</a>
+          <a href="#perguntas-frequentes">Perguntas frequentes</a>
           <a href="#contato">Contato</a>
         </nav>
         <div class="footer__aside">
